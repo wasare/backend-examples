@@ -35,10 +35,10 @@ router.get('/', async function(req, res) {
 });
 
 /* POST /api/catalog - Cria uma oferta */
-router.post('/', authenticateToken, uploadSingle, async (req, res) => { // arrow function
-  if (!req.accessToken.is_admin) {
-    return res.status(403).end();
-  }
+router.post('/', async (req, res) => { // arrow function
+  // if (!req.accessToken.is_admin) {
+  //   return res.status(403).end();
+  // }
   const data = req.body; 
   console.log(data);
 
