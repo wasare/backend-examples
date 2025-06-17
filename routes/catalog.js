@@ -92,11 +92,11 @@ router.get('/:id', async (req, res) => {
 
 
 /* PATCH /api/catalog/{id} - Atualiza uma oferta pelo id */
-router.patch('/:id', authenticateToken, async (req, res) => {
+router.patch('/:id', async (req, res) => {
   try {
-    if (!req.accessToken.is_admin) {
-      return res.status(403).end();
-    }
+    // if (!req.accessToken.is_admin) {
+    //   return res.status(403).end();
+    // }
     const id = Number(req.params.id);
     const data = req.body;
     const catalogItem = await prisma.offering.update({
@@ -113,11 +113,11 @@ router.patch('/:id', authenticateToken, async (req, res) => {
 });
 
 /* DELETE /api/catalog/{id} - Exclui uma oferta por ID */
-router.delete('/:id', authenticateToken, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
-    if (!req.accessToken.is_admin) {
-      return res.status(403).end();
-    }
+    // if (!req.accessToken.is_admin) {
+    //   return res.status(403).end();
+    // }
     const id = Number(req.params.id);
     const catalogItem = await prisma.offering.update({ // exclusão lógica
       where: {
